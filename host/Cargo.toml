@@ -1,0 +1,38 @@
+[package]
+name = "host"
+version = "0.1.0"
+edition = "2024"
+
+[[bin]]
+name = "desktop"
+path = "src/desktop.rs"
+required-features = ["ui-runtime"]
+
+[[bin]]
+name = "web"
+path = "src/web.rs"
+required-features = ["web-server"]
+
+[[bin]]
+name = "wasm_ui"
+path = "src/wasm_ui.rs"
+required-features = ["wasm-ui"]
+
+[[bin]]
+name = "build_wasm_ui"
+path = "src/build_wasm_ui.rs"
+required-features = ["web-build"]
+
+[features]
+default = ["ui-runtime"]
+ui-runtime = ["dep:ui"]
+web-server = ["dep:ntex", "dep:ntex-files"]
+web-build = ["dep:anyhow", "dep:wasm-bindgen-cli-support"]
+wasm-ui = ["dep:ui"]
+
+[dependencies]
+ui = { path = "../crates/ui", optional = true }
+ntex = { workspace = true, optional = true }
+ntex-files = { workspace = true, optional = true }
+anyhow = { version = "1", optional = true }
+wasm-bindgen-cli-support = { version = "=0.2.130", optional = true }

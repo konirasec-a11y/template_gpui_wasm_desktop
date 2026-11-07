@@ -1,0 +1,21 @@
+[workspace]
+resolver = "3"
+members = ["crates/api", "crates/core", "crates/ui", "host"]
+
+[workspace.dependencies]
+cordis-rs = "0.11"
+tokio = { version = "1", features = ["rt-multi-thread", "macros"] }
+cordis-core = "0.6"
+cordis-timer = "0.6"
+cordis-loader = "0.6"
+ntex = { version = "4.6.0", features = ["tokio"] }
+
+gpui-navigator = "0.2.1"
+gpui = { git = "https://github.com/zed-industries/zed", rev = "0018500a6a6df7fa79bd4ca91561cf3eec3e1e3d", version = "=0.2.2" }
+gpui_platform = { git = "https://github.com/zed-industries/zed", rev = "0018500a6a6df7fa79bd4ca91561cf3eec3e1e3d", default-features = false, features = ["font-kit", "wayland", "x11"] }
+ntex-files = "4.4"
+
+
+[patch.crates-io]
+gpui = { git = "https://github.com/zed-industries/zed", rev = "0018500a6a6df7fa79bd4ca91561cf3eec3e1e3d", version = "=0.2.2" }
+gpui_platform = { git = "https://github.com/zed-industries/zed", rev = "0018500a6a6df7fa79bd4ca91561cf3eec3e1e3d" }

@@ -1,0 +1,4 @@
+[alias]
+start = "run --package host --bin desktop"
+build-web = "run --package host --bin build_wasm_ui --no-default-features --features web-build"
+start-web = "run --package host --bin build_wasm_ui --no-default-features --features web-build -- --serve"

@@ -1,0 +1,9 @@
+[package]
+name = "ui"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+gpui-navigator = { workspace = true }
+gpui = { workspace = true }
+gpui_platform = { workspace = true }
